@@ -5,8 +5,11 @@
 (define (remove-first-occurrence n d)
   (define (helper result left-over found counter)
     (cond
-      [(and (= left-over 0) (not found)) (error "There isn't such digit in the number")]
-      [(and (= left-over 0) found) result]
+      [(= left-over 0)
+            (if found
+                result
+                (error "There isn't such digit in the number")
+                )]
       [(and (not found) (= (remainder left-over 10) d)) (helper result (quotient left-over 10) #t counter)]
       [else (helper (+ (* (remainder left-over 10) (expt 10 counter)) result) (quotient left-over 10) found (add1 counter))]
       )
