@@ -12,10 +12,7 @@
   )
 
 (define (remove-all-proc x xs)
-  (if (not (member x xs))
-      xs
-      (remove-all-proc x (remq x xs))
-      )
+  (remq* (list x) xs)
   )
 
 ; using a predefined procedure
