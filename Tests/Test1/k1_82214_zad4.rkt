@@ -1,0 +1,36 @@
+#lang racket
+
+(define (get-product-of-digits n)
+  (define (helper left-over result)
+    (if (< left-over 10)
+        (* result left-over)
+        (helper (quotient left-over 10) (* result (remainder left-over 10)))
+        )
+    )
+  (helper n 1)
+  )
+
+(define (get-list-of-digit-products n)
+  (define (helper left-over result)
+    (if (< left-over 10)
+        result
+        (helper (get-product-of-digits left-over) (cons (get-product-of-digits left-over) result))
+        )
+    )
+  (if (< n 10)
+      (list n)
+      (reverse (helper n '()))
+      )
+  )
+
+(define (persistence n)
+  (if (< n 0)
+      (error "N must be natural!")
+      (cons (get-list-of-digit-products n) (length (get-list-of-digit-products n)))
+      )
+  )
+
+(equal? (persistence 39) '((27 14 4) . 3))
+(equal? (persistence 126) '((12 2) . 2))
+(equal? (persistence 4) '((4) . 1))
+(equal? (persistence 999) '((729 126 12 2) . 4))
