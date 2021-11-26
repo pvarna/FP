@@ -3,6 +3,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,windows,racket,haskell,visualstudiocode
 
 ### Haskell ###
+*
+!/**/
+!*.*
 dist
 dist-*
 cabal-dev
@@ -26,6 +29,7 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+
 
 ### Linux ###
 *~
