@@ -10,7 +10,4 @@ hasIncDigits n
  | otherwise = helper n
  where
     helper :: Int -> Bool
-    helper leftOver
-     | leftOver < 10 = True
-     | (mod leftOver 10) < (mod (div leftOver 10) 10) = False
-     | otherwise = helper (div leftOver 10)
+    helper leftOver = leftOver < 10 || mod leftOver 10 >= (mod (div leftOver 10) 10) && helper (div leftOver 10)

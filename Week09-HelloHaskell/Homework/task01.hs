@@ -5,4 +5,4 @@ main = do
     print $ sqAvg 10 13 == 134.5
 
 sqAvg :: Int -> Int -> Double
-sqAvg a b = (fromIntegral $ a * a + b * b) / 2
+sqAvg x y = (fromIntegral $ x * x + y * y) / 2
