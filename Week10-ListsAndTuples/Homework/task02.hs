@@ -17,5 +17,5 @@ containsD :: Int -> Int -> Bool
 containsD n d = elem d $ map digitToInt $ show n
 
 sumSpecialPrimes :: Int -> Int -> Int
-sumSpecialPrimes n d = sum $ take n [ x | x <- [2 ..], isPrime x && containsD x d]
+sumSpecialPrimes n d = sum $ take n [ x | x <- [2 .. ], isPrime x && containsD x d]
 
