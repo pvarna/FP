@@ -27,4 +27,4 @@ toBinaryIndexed tree = helper tree tree
     where
         helper :: BTree Int -> BTree Int -> BTree (Int,Int)
         helper _ Nil = Nil
-        helper original current@(Node value left right) = (Node (value,(elemIndex value (getValuesDFS original))) (helper original left) (helper original right))
+        helper original (Node value left right) = (Node (value,(elemIndex value (getValuesDFS original))) (helper original left) (helper original right))
