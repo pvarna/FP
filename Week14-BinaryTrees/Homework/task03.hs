@@ -1,6 +1,6 @@
 main :: IO()
-main = do
 
+main = do
     print $ toBinaryIndexed tree   == Node (10,5) (Node (5,2) (Node (3,1) (Node (1,0) Nil Nil) Nil) (Node (7,4) (Node (6,3) Nil Nil) Nil)) (Node (15,7) (Node (13,6) Nil Nil) (Node (18,8) Nil Nil))
    
 data BTree a = Nil | Node a (BTree a) (BTree a)
