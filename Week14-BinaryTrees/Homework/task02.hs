@@ -20,4 +20,4 @@ convert tree = helper tree tree
     where
         helper :: BTree -> BTree -> BTree
         helper _ Nil = Nil
-        helper original current@(Node value left right) = (Node (toNewValue value original) (helper original left) (helper original right))
+        helper original (Node value left right) = (Node (toNewValue value original) (helper original left) (helper original right))
